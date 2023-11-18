@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nested If </title>
+    </head>
+    <body>
+        <center>
+            <h1>Nested If</h1>
+            {% if a > b  %}
+
+              {% if a > c %}
+
+                <h1>{{a}}</h1>
+
+              {% else %}
+
+                <h1>{{c}}</h1>
+
+                {% endif %}
+
+            {% else %}
+
+              {% if b > c %}
+
+                <h1>{{b}}</h1>
+
+              {% else %}
+
+                <h1>{{c}}</h1>
+                
+                {% endif %}
+
+            {% endif %}
+        </center>
+    </body>
+</html>
