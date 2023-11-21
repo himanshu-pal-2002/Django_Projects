@@ -1,7 +1,8 @@
-from .import views
+from app1.views import *
 from django.urls import path
-app_name='Himanshu'
+
+app_name='am'
 
 urlpatterns=[
-    path('/',views.Himanshu,name='Himanshu'),
+    path('Himanshu/',Himanshu,name='Himanshu'),
 ]
