@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,8 @@
     </head>
     <body>
         <center>
-        <h1>Calling ....</h1>
+        <h1>Calling to Riya....</h1>
+        <img src="{% static 'images/riya.avif'%}" alt="Image not Found" height="400px" width="400px">
         <h1>Pick Up</h1>
         <h1>Call End</h1>
     
@@ -21,6 +23,7 @@
         <a href="{% url 'Happy2' %} ">
             Response From Happy2
         </a>
+        {% comment %} <img src="{% static 'images/riya.avif'%}" alt="Image not Found" {% endcomment %}
     </center>
 
     </body>

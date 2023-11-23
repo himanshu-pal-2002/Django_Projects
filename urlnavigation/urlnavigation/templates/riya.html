@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,8 @@
     </head>
     <body>
         <center>
-        <h1>Shouting ....</h1>
+        <h1>Shouting to sushant....</h1>
+        <img src="{% static 'images/sushant.jpeg'%}" alt="Image not Found" height="400px" width="400px">
         <h1>Running</h1>
         <h1>End Run</h1>
         <a href="{% url 'Happy' %} ">
