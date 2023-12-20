@@ -7,3 +7,7 @@ class Employee(models.Model):
     Email=models.EmailField()
     Company_Name=models.CharField(max_length=40)
     
+    
+    def __str__(self):
+        return self.Name
+        
