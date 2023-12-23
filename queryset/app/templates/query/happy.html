@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+        <center>
         <table>
             <tr>
                 <th>Name</th>
@@ -14,7 +15,15 @@
                 <th>Email</th>
                 <th>Company_Name</th>
             </tr>
+            {% for i in Employee %}
+            <tr>
+                <td>{{i.Name}}</td>
+                <td>{{i.Designation}}</td>
+                <td>{{i.Email}}</td>
+                <td>{{i.Company_Name}}</td>   
+            </tr>
+            {% endfor %}
         </table>
-        <h1>Happy Christmas Day</h1>
+    </center>
     </body>
 </html>
