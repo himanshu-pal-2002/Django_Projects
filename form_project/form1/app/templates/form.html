@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% csrf_token %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="POST" action={% url 'Home' %}>
+        {% csrf_token %}
+            <label for="un">Username</label>
+            <input type="text" id="un"><br><br>
+            <label for="ps">Password</label>
+            <input type="password" id="ps"><br><br>
+            <input type="Submit" value="Login">
+    </body>
+</html>
