@@ -20,3 +20,9 @@ def Intro(request):
         # return HttpResponse('Details Submit Successfully')
 
     return render(request,'intro.html')
+
+def select_multiple(request):
+    DO=Introduction.objects.all()
+    d={'Education':DO}
+    
+    return render(request,'select_multiple.html',d)
