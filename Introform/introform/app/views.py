@@ -26,3 +26,10 @@ def select_multiple(request):
     d={'Education':DO}
     
     return render(request,'select_multiple.html',d)
+
+def Checkbox(request):
+    CLTO=Introduction.objects.all()
+    d={'Education':CLTO}
+        
+    
+    return render(request,'check.html',d)
