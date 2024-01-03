@@ -10,11 +10,14 @@
     </head>
     <body>
         <center>
+            <h1>!!! School Registeration Form !!!</h1>
+            <hr>
             <form method='Post'>
                 {% csrf_token %}
 
+                {{ SNFO.as_p }}
 
-            <input type="Submit" value="">
+            <input type="Submit">
             </form>
         </center>
     </body>

@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from app.forms import SchoolForm,TeacherForm,StudentForm
 
@@ -5,5 +6,11 @@ from app.forms import SchoolForm,TeacherForm,StudentForm
 def School(request):
     SNFO = SchoolForm()
     d={'SNFO':SNFO}
-    
-    return render(request,'home.html',d)
+    if request.method=='POST':
+        SFDO = SchoolForm(request.POST)
+        if SFDO.is_valid():
+            return HttpResponse('Data is Correct')
+        else:
+            return HttpResponse('Data is invalid')
+        
+    return render(request,'school.html',d)
