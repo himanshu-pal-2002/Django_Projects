@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from app.forms import SchoolForm,TeacherForm,StudentForm
-from .models import School
+from .models import School,Teacher
 
 # Views For School.
 def school(request):
@@ -22,13 +22,19 @@ def school(request):
     return render(request,'school.html',d)
 
 # Views For Teacher.
-def Teacher(request):
+def teacher(request):
     TNFO = TeacherForm()
     d={'TNFO':TNFO}
     if request.method=='POST':
         TFDO = TeacherForm(request.POST)
         if TFDO.is_valid():
-            return HttpResponse('Data is Correct')
+            sc=TFDO.cleaned_data['School']
+            tn=TFDO.cleaned_data['Tname']
+            te=TFDO.cleaned_data['T_Exp']
+            ts=TFDO.cleaned_data['T_Sub']
+            TO=Teacher.objects.get_or_create(School=sc,Tname=tn,T_Exp=te,T_Sub=ts)[0]
+            TO.save()
+            return HttpResponse('Teacher is created')
         else:
             return HttpResponse('Data is invalid')
         
