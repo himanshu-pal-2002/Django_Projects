@@ -39,3 +39,9 @@ def teacher(request):
             return HttpResponse('Data is invalid')
         
     return render(request,'teacher.html',d)
+
+# Views for Student.
+def student(request):
+    UNFO = StudentForm()
+    d={'UNFO':UNFO}
+    return render(request,'student.html',d)

@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>School</title>
+        <title>Student</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
         <center>
-            <h1>!!! School Registeration Form !!!</h1>
+            <h1>!!! Student Registeration Form !!!</h1>
             <hr>
             <form method='Post'>
                 {% csrf_token %}
 
-                {{ SNFO.as_p }}
+                {{ UNFO.as_p }}
 
             <input type="Submit">
             </form>

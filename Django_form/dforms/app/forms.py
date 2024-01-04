@@ -1,5 +1,5 @@
 from django import forms
-from .models import *
+from .models import School,Teacher
 
 
 class SchoolForm(forms.Form):
@@ -20,7 +20,13 @@ class TeacherForm(forms.Form):
     
 
 class StudentForm(forms.Form):
-    pass
     
+    School=forms.ModelChoiceField(queryset=School.objects.all(),initial=0)
+    Teachers=forms.ModelChoiceField(queryset=Teacher.objects.all(),initial=0)
+    Sname = forms.CharField()
+    S_F_name = forms.CharField()
+    Phone_No = forms.IntegerField()
+    Email = forms.EmailField()
+    Address = forms.CharField()
 
 
