@@ -3,6 +3,10 @@ from django.shortcuts import render
 from app.forms import SchoolForm,TeacherForm,StudentForm
 from .models import School,Teacher,Student
 
+# Views for HomePage:
+def Home(request):
+    return render(request,'home.html')
+
 # Views For School.
 def school(request):
     SNFO = SchoolForm()
