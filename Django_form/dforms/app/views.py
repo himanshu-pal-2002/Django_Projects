@@ -24,6 +24,12 @@ def school(request):
         
     return render(request,'school.html',d)
 
+# For Showing Data of School:
+def SchoolData(request):
+    SD=School.objects.all()
+    a={'SCD':SD}
+    return render(request,'schooldata.html',a)
+
 # Views For Teacher.
 def teacher(request):
     TNFO = TeacherForm()
