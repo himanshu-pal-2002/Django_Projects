@@ -51,6 +51,13 @@ def teacher(request):
         
     return render(request,'teacher.html',d)
 
+# Views For Teacher Data:
+def TeacherData(request):
+    TD=Teacher.objects.all()
+    b={'TD':TD}
+    return render(request,'teacherdata.html',b)
+
+
 # Views for Student.
 def student(request):
     UNFO = StudentForm()
@@ -74,3 +81,8 @@ def student(request):
             return HttpResponse('Data is invalid')
                   
     return render(request,'student.html',d)
+# Views For Student Data:
+def StudentData(request):
+    SD=Student.objects.all()
+    c={'SD':SD}
+    return render(request,'studentdata.html',c)
