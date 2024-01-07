@@ -11,8 +11,8 @@ def school(request):
         SFDO=schoolform(request.POST)
         if SFDO.is_valid():
             SFDO.save()
-            return HttpResponse('Data is Successfully Entered')
-            
+            return HttpResponse('Data is Successfully Entered')   
         else:
             return HttpResponse('Invalid Data')
     return render(request,'school.html',d)
+
