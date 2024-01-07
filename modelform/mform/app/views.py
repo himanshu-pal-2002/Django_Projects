@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import schoolform
+from .forms import schoolform,teacherform
 
 # Create your views here.
 def school(request):
@@ -16,3 +16,9 @@ def school(request):
             return HttpResponse('Invalid Data')
     return render(request,'school.html',d)
 
+# Create view for Teacher:
+def teacher(request):
+    TFSO = teacherform
+    a={'TFSO':TFSO}
+    
+    return render(request,'teacher.html',a)
