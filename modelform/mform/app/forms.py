@@ -12,3 +12,6 @@ class teacherform(forms.ModelForm):
     class Meta:
         model = Teacher
         fields = '__all__'
+        # exclude = ['texp']
+        # labels = {'texp':'Teacher Experience'}
+        # widgets = {'texp':forms.PasswordInput()}
