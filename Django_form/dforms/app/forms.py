@@ -23,7 +23,7 @@ class SchoolForm(forms.Form):
 class TeacherForm(forms.Form):
     
     School=forms.ModelChoiceField(queryset=School.objects.all(),initial=0)
-    # Tname=forms.CharField()
+   
     Tname = forms.CharField(validators=[validate_for_Sname,validators.MinLengthValidator(5)])
     
     T_Exp=forms.IntegerField()
