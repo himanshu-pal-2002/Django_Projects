@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 
-# Create your views here.
+# Create views for Login page here.
 def Login_Page(request):
     if request.method=='POST':
         username=request.POST['username']
