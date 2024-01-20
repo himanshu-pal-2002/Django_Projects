@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import *
+from .models import *
 
 
 # Create your views here.
@@ -39,3 +40,25 @@ def registration(request):
             return HttpResponse("Invalid Data")
         
     return render(request,'registeration.html',d)
+
+# Views For Displaying Details:
+def Show_Details(request):
+
+    data=Profile.objects.all()
+    d={'data':data}
+
+    return render(request,'showdata1.html',d)
+
+# Views For Profile View
+def Profile_View(request):
+    id = request.GET["id"]
+    profile = Profile.objects.get(id=id)
+    a={'profile':profile}
+    return render(request,'profiledata.html',a)
+# def Delete(request):
+#        id = request.GET["id"]
+  
+#        cakeorder = Cake_Order_Form.objects.get(id=id)
+#        cakeorder.IsDelete=True;
+#        cakeorder.save();
+#        return redirect('CakeOrderList')
