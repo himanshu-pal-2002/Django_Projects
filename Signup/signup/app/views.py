@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import *
 from .models import *
 
@@ -35,7 +35,7 @@ def registration(request):
 
             MPFDO.save()
 
-            return HttpResponse("Registration Successful")
+            return redirect("Show_Details")
         else:
             return HttpResponse("Invalid Data")
         
@@ -50,15 +50,17 @@ def Show_Details(request):
     return render(request,'showdata1.html',d)
 
 # Views For Profile View
-def Profile_View(request):
-    id = request.GET["id"]
-    profile = Profile.objects.get(id=id)
-    a={'profile':profile}
-    return render(request,'profiledata.html',a)
-# def Delete(request):
-#        id = request.GET["id"]
-  
-#        cakeorder = Cake_Order_Form.objects.get(id=id)
-#        cakeorder.IsDelete=True;
-#        cakeorder.save();
-#        return redirect('CakeOrderList')
+def Profile_View(request,id):
+
+    profile = Profile.objects.get_or_create(id=id)[0]
+    # a={'profile':profile}
+    print(profile)
+    return render(request,'profiledata.html',{'profile':profile})
+
+
+# For Deleteing Data specific id.
+def Delete_Profile(request,id):
+    profile = get_object_or_404(Profile, id=id)
+    profile.delete()
+    return redirect('Show_Details')
+

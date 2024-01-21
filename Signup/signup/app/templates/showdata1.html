@@ -29,9 +29,9 @@
             <!-- <td><button class="btn btn-primary">Show Profile</button></td> -->
             <td>
                 <div class="btn btn-group">
-                    <a href="/cakeorder/CakeOrderEditData?id={{i.id}}" class="btn btn-primary btn-sm">Profile View</a>
-                    <a href="/cakeorder/Delete?id={{i.id}}" onclick="javascript:return confirm('Do you want to delete?')" class="btn btn-danger btn-sm">Delete</a>
-                    <!-- <a href="/cakeorder/CakeOrderList_pdf_view?id={{i.id}}" class="btn btn-primary btn-sm">View</a>  -->
+                    <a href="{% url 'Profile_View' d.id %}" class="btn btn-primary btn-sm">Profile View</a>
+                    <a href="{% url 'Delete_Profile' d.id %}" onclick="javascript:return confirm('Do you want to delete?')" class="btn btn-danger btn-sm">Delete</a>
+                    <!-- <a href="/cakeorder/CakeOrderList_pdf_view?id={{i.id}}" class="btn btn-primary btn-sm">Edit</a>  -->
                </div>
             </td>
             {% endfor %}
