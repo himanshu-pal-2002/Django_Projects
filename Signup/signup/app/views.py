@@ -40,10 +40,11 @@ def registration(request):
                 'Registration',
                 'Your Registration is Successful',
                 'palhimanshu206246@gmail.com',
-                ['palhimanshu206243@gmail.com'],
+                [MUFDO.email],
                 fail_silently=False,
             )
-            # return redirect("Show_Details")
+            # print(MUFDO.email),
+            return redirect("Show_Details")
         else:
             return HttpResponse("Invalid Data")
         
