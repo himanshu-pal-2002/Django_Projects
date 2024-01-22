@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import *
 from .models import *
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -35,7 +36,14 @@ def registration(request):
 
             MPFDO.save()
 
-            return redirect("Show_Details")
+            send_mail (
+                'Registration',
+                'Your Registration is Successful',
+                'palhimanshu206246@gmail.com',
+                ['palhimanshu206243@gmail.com'],
+                fail_silently=False,
+            )
+            # return redirect("Show_Details")
         else:
             return HttpResponse("Invalid Data")
         
