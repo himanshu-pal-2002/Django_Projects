@@ -4,6 +4,10 @@ from .forms import *
 from .models import *
 from django.core.mail import send_mail
 
+# Create view for Home
+def home(request):
+    return render(request,'')
+
 
 # Create your views here.
 def registration(request):
@@ -72,4 +76,8 @@ def Delete_Profile(request,id):
     profile = get_object_or_404(Profile, id=id)
     profile.delete()
     return redirect('Show_Details')
+
+# For login:
+def User_login(request):
+    return render(request,'user_login.html')
 
