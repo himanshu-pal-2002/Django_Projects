@@ -131,4 +131,7 @@ def change_password(request):
         return redirect('User_login')
     return render(request,'change_password.html')
 
+# Views For Forget Password:
+
+
 
