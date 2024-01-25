@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 #     return render(request,'home.html')
 
 
-# Create your views here.
+# Create views For Registration.
 def registration(request):
 
     ufo=UserForm()
@@ -55,26 +55,31 @@ def registration(request):
                 fail_silently=False,
             )
             # print(MUFDO.email),
-            return redirect("Show_Details")
+            return redirect("User_login")
         else:
             return HttpResponse("Invalid Data")
         
     return render(request,'registeration.html',d)
 
-# Views For Displaying Details:
+# Views For Displaying All user Details:
+@login_required(login_url='User_login')
 def Show_Details(request):
 
+    if request.session.get('username'):
+        username=request.session.get('username')
+        UO=User.objects.get(username=username)
     data=Profile.objects.all()
-    d={'data':data}
+    d={'data':data,'UO':UO}
 
     return render(request,'showdata1.html',d)
 
-# Views For Profile View
+# Views For Single Use Profile View
+@login_required(login_url='User_login')
 def Profile_View(request,id):
 
     profile = Profile.objects.get_or_create(id=id)[0]
     # a={'profile':profile}
-    print(profile)
+    # print(profile)
     return render(request,'profiledata.html',{'profile':profile})
 
 
@@ -84,7 +89,7 @@ def Delete_Profile(request,id):
     profile.delete()
     return redirect('Show_Details')
 
-# For login:
+# For User login:
 def User_login(request):
     if request.method=='POST':
         username=request.POST['un']
@@ -97,11 +102,13 @@ def User_login(request):
 
     return render(request,'user_login.html')
 
-# Create view for Home
+# Create view for HomePage
 def home(request):
     if request.session.get('username'):
         username=request.session.get('username')
-        d = {'username': username}
+        UO=User.objects.get(username=username)
+        PO=Profile.objects.get(username=UO)
+        d = {'username': username,'UO':UO,'PO':PO}
         return render(request,'home.html',d)
     
     return render(request,'home.html')
@@ -111,5 +118,17 @@ def home(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+# Create views for Change Password:
+@login_required
+def change_password(request):
+    if request.method=='POST':
+        Pw = request.POST['Pw']
+        username = request.session.get('username')
+        UO = User.objects.get(username=username)
+        UO.set_password(Pw)
+        UO.save()
+        return redirect('User_login')
+    return render(request,'change_password.html')
 
 
