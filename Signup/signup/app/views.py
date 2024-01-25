@@ -132,6 +132,13 @@ def change_password(request):
     return render(request,'change_password.html')
 
 # Views For Forget Password:
+def Forget_Password(request):
+    if request.method=='POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        UO = User.objects.filter(username=username)
+
+    return render(request,'forget_password.html')
 
 
 
