@@ -13,4 +13,5 @@ urlpatterns=[
     path('Show_Details/<int:id>',Show_Details,name='Show_Details'),
     path('Profile_View/<int:id>',Profile_View,name='Profile_View'),
     path('Delete/<int:id>/', Delete_Profile, name='Delete_Profile'),
+    # path('send_otp/',send_otp,name='send_otp'),
 ]

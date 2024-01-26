@@ -6,47 +6,25 @@ from .models import *
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-
-# Create view for Home
-# def home(request):
-#     if request.session.get('username'):
-#         username=request.session.get('username')
-#         d = {'username': username}
-#         return render(request,'home.html',d)
-#     return render(request,'home.html')
+import random
 
 
 # Create views For Registration.
 def registration(request):
-
     ufo=UserForm()
-
     pfo=ProfileForm()
-
     d={'ufo':ufo,'pfo':pfo}
-
     if request.method=='POST' and request.FILES:
-
         ufd=UserForm(request.POST)
-
         pfd=ProfileForm(request.POST,request.FILES)
-
         if ufd.is_valid() and pfd.is_valid():
-
             MUFDO=ufd.save(commit=False)
-
             Pw=ufd.cleaned_data['password']
-
             MUFDO.set_password(Pw)
-
             MUFDO.save()
-
             MPFDO=pfd.save(commit=False)
-
             MPFDO.username=MUFDO
-
             MPFDO.save()
-
             send_mail (
                 'Registration',
                 'Your Registration is Successful',
@@ -54,6 +32,14 @@ def registration(request):
                 [MUFDO.email],
                 fail_silently=False,
             )
+            # send_mail(
+            #     'Your OTP',
+            #     f'Your OTP is: {otp}',
+            #     'palhimanshu206243@gmail.com',
+            #     [MUFDO.email],
+            #      fail_silently=False,
+            # )
+
             # print(MUFDO.email),
             return redirect("User_login")
         else:
@@ -134,11 +120,43 @@ def change_password(request):
 # Views For Forget Password:
 def Forget_Password(request):
     if request.method=='POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        UO = User.objects.filter(username=username)
+        username = request.POST['un']
+        password = request.POST['pw']
+        FUO = User.objects.filter(username=username)
+        if FUO:
+            UO=FUO[0]
+            UO.set_password(password)
+            UO.save()
+            return HttpResponse('Reset is Done')
+        else:
+            return HttpResponse("Your username is invalid")
 
     return render(request,'forget_password.html')
 
+# Views for sending OTP:
+
+# def send_otp(request):
+#     ufo=UserForm()
+#     pfo=ProfileForm()
+#     d={'ufo':ufo,'pfo':pfo}
+#     if request.method == 'POST':
+#         email = request.POST['email']
+#         # ufd=UserForm(request.POST)
+#         UOTP=User.objects.get(email=email)
+#         # email = request.POST.get('email')
+#         otp = random.randint(100000, 999999)  # 6-digit OTP
+#         EmailOTP.objects.create(email=email, otp=str(otp))
+
+#         send_mail(
+#             'Your OTP',
+#             f'Your OTP is: {otp}',
+#             'palhimanshu206243@gmail.com',
+#             [UOTP.email],
+#             fail_silently=False,
+#         )
+#         return HttpResponse("Otp send successfully")
+#         # return render(request, 'verify_otp.html', {'UOTP': UOTP})
+    
+#     return render(request,'registeration.html',d)
 
 
