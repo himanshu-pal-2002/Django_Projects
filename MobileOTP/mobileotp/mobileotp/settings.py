@@ -134,3 +134,5 @@ FIREBASE_CONFIG = {
     'messagingSenderId': '834739319273',
     'appId': '1:834739319273:web:09e122b319990a70209b78',
 }
+cred = credentials.Certificate('A:\Django_Projects\MobileOTP\mobileotp')
+firebase_admin.initialize_app(cred,FIREBASE_CONFIG)
