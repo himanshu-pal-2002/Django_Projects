@@ -122,3 +122,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import firebase_admin
+from firebase_admin import credentials
+
+FIREBASE_CONFIG = {
+    'apiKey': 'AIzaSyBc0coMkhH-ADGjl5bstQ7fhevI2qP-fCI',
+    'authDomain': 'otpvalidation-e5648.firebaseapp.com',
+    'projectId': 'otpvalidation-e5648',
+    'storageBucket': 'otpvalidation-e5648.appspot.com',
+    'messagingSenderId': '834739319273',
+    'appId': '1:834739319273:web:09e122b319990a70209b78',
+}
