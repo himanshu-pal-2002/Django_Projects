@@ -3,7 +3,7 @@ from django.contrib import messages
 import firebase_admin
 from firebase_admin import auth
 
-# Views for sending OTP:
+# Views for sending OTP to Phone Number:
 
 def send_otp(request):
     if request.method == 'POST':
@@ -20,7 +20,7 @@ def send_otp(request):
 
     return render(request, 'send_otp.html')
 
-# Views for verifying OTP:
+# Views for verifying OTP with Phone Number:
 
 
 def verify_otp(request):
