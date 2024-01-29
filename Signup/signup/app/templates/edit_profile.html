@@ -8,12 +8,19 @@
         <br>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            <style>
+                #id_password{
+                    display: none;
+                }
+                label[for='id_password']{
+                        display: none;
+                }
+            </style>
             
-            {{Uform.as_p}}
-            {{Pform.as_p}}
+            {{form1.as_p}}
+            {{form2.as_p}}
+          
 
-
-            
 
           <input type="submit" value="Register">
         </form>

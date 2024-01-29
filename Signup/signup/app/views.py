@@ -127,29 +127,23 @@ def Forget_Password(request):
 # Views for Edit Profile:
 def Edit_Profile(request,id):
 
-    get_data = Profile.objects.get(id=id)
-    
+    PO =Profile.objects.get(id=id)
+    U=PO.username
+    if request.method=='POST':
+        ufd=UserForm(request.POST,instance=U)
+        pfd=ProfileForm(request.POST,request.FILES)
+        if ufd.is_valid() and pfd.is_valid():
+            
+            ufd.save()
+            MPFDO=pfd.save(commit=False)
+            MPFDO.username=ufd
+            MPFDO.save()
+    form1=UserForm(instance=U)
+    # print(form1)
+    form2=ProfileForm(instance=PO)
+    return render(request,'edit_profile.html',{"form1":form1,'form2':form2})
 
-    Uform = UserForm()
-    Pform = ProfileForm()
-    d={'Uform':Uform,'Pform':Pform,'get_data':get_data}
 
-
-    return render(request,'edit_profile.html',d)
-
-#For Editing The Cake Order Data
-# def CakeOrderEditData(request):
-    
-#        id = request.GET["id"]
-   
-#        get_data = Cake_Order_Form.objects.get(id=id)
-       
-#        CakeOrderForm=forms.CakeOrderForm()
-     
-       
-#        mydict={'CakeOrderForm':CakeOrderForm,'Ed':get_data}
-       
-#        return render(request,"cake/cakeordereditdata.html",context=mydict)
 
 
 
