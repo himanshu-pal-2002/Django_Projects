@@ -128,11 +128,12 @@ def Forget_Password(request):
 def Edit_Profile(request,id):
 
     get_data = Profile.objects.get(id=id)
+    
 
-    pf = ProfileForm()
-    uf = UserForm()
+    Uform = UserForm()
+    Pform = ProfileForm()
+    d={'Uform':Uform,'Pform':Pform,'get_data':get_data}
 
-    d={'pf':pf,'uf':uf,'get_data':get_data}
 
     return render(request,'edit_profile.html',d)
 

@@ -9,8 +9,10 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             
-            {{uf.as_p}}
-            {{pf.as_p}}
+            {{Uform.as_p}}
+            {{Pform.as_p}}
+
+
             
 
           <input type="submit" value="Register">
