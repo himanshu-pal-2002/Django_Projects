@@ -6,7 +6,6 @@ from .models import *
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-import random
 
 
 # Create views For Registration.
@@ -32,15 +31,7 @@ def registration(request):
                 [MUFDO.email],
                 fail_silently=False,
             )
-            # send_mail(
-            #     'Your OTP',
-            #     f'Your OTP is: {otp}',
-            #     'palhimanshu206243@gmail.com',
-            #     [MUFDO.email],
-            #      fail_silently=False,
-            # )
-
-            # print(MUFDO.email),
+       
             return redirect("User_login")
         else:
             return HttpResponse("Invalid Data")
@@ -133,30 +124,10 @@ def Forget_Password(request):
 
     return render(request,'forget_password.html')
 
-# Views for sending OTP:
+# Views for Edit Profile:
+def Edit_Profile(request):
+    return render(request,'edit_profile.html')
 
-# def send_otp(request):
-#     ufo=UserForm()
-#     pfo=ProfileForm()
-#     d={'ufo':ufo,'pfo':pfo}
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         # ufd=UserForm(request.POST)
-#         UOTP=User.objects.get(email=email)
-#         # email = request.POST.get('email')
-#         otp = random.randint(100000, 999999)  # 6-digit OTP
-#         EmailOTP.objects.create(email=email, otp=str(otp))
 
-#         send_mail(
-#             'Your OTP',
-#             f'Your OTP is: {otp}',
-#             'palhimanshu206243@gmail.com',
-#             [UOTP.email],
-#             fail_silently=False,
-#         )
-#         return HttpResponse("Otp send successfully")
-#         # return render(request, 'verify_otp.html', {'UOTP': UOTP})
-    
-#     return render(request,'registeration.html',d)
 
 
