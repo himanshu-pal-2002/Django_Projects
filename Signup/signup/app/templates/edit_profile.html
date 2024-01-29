@@ -1,1 +1,19 @@
-<h1>Good Morning</h1>
+{% extends 'index.html' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+    <center>
+        <h1>Edit Registration Form</h1>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{uf.as_p}}
+            {{pf.as_p}}
+            
+
+          <input type="submit" value="Register">
+        </form>
+    </center>
+{% endblock %}

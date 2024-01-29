@@ -125,8 +125,30 @@ def Forget_Password(request):
     return render(request,'forget_password.html')
 
 # Views for Edit Profile:
-def Edit_Profile(request):
-    return render(request,'edit_profile.html')
+def Edit_Profile(request,id):
+
+    get_data = Profile.objects.get(id=id)
+
+    pf = ProfileForm()
+    uf = UserForm()
+
+    d={'pf':pf,'uf':uf,'get_data':get_data}
+
+    return render(request,'edit_profile.html',d)
+
+#For Editing The Cake Order Data
+# def CakeOrderEditData(request):
+    
+#        id = request.GET["id"]
+   
+#        get_data = Cake_Order_Form.objects.get(id=id)
+       
+#        CakeOrderForm=forms.CakeOrderForm()
+     
+       
+#        mydict={'CakeOrderForm':CakeOrderForm,'Ed':get_data}
+       
+#        return render(request,"cake/cakeordereditdata.html",context=mydict)
 
 
 
