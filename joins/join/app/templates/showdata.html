@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Table Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+    <h1>Equi Joins</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Empno</th>
+            <th scope="col">EmpName</th>
+            <th scope="col">Job</th>
+            <th scope="col">Mgr</th>
+            <th scope="col">Hiredate</th>
+            <th scope="col">Sal</th>
+            <th scope="col">Comm</th>
+            <th scope="col">Deptno</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for EMP in EMPO%}
+          <tr>
+            <td>EMP.empno</td>
+            <td>EMP.empname</td>
+            <td>EMP.job</td>
+            <td>EMP.mgr</td>
+            <td>EMP.hiredate</td>
+            <td>EMP.sal</td>
+            <td>EMP.comm</td>
+            <td>EMP.deptno</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </center>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
