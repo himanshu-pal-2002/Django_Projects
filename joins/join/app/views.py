@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.db.models import Q
 
-# Create your views here.
+# Create views for equijoin.
 def equijoin(request):
     EMPO = Emp.objects.select_related('deptno').all()
     EMPO = Emp.objects.select_related('deptno').filter(ename='ALLEN')
