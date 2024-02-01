@@ -14,26 +14,27 @@
           <tr>
             <th scope="col">Empno</th>
             <th scope="col">EmpName</th>
-            <th scope="col">Job</th>
             <th scope="col">Mgr</th>
-            <th scope="col">Hiredate</th>
             <th scope="col">Sal</th>
-            <th scope="col">Comm</th>
+            <th scope="col">Dloc</th>
             <th scope="col">Deptno</th>
+            <th scope="col">Dname</th>
+
 
           </tr>
         </thead>
         <tbody>
-            {% for EMP in EMPO%}
+            {% for EMP in EMPOBJ%}
           <tr>
             <td>{{EMP.empno}}</td>
             <td>{{EMP.ename}}</td>
-            <td>{{EMP.job}}</td>
-            <td>{{EMP.mgr}}</td>
-            <td>{{EMP.hiredate}}</td>
-            <td>{{EMP.sal}}</td>
-            <td>{{EMP.comm}}</td>
+            <td>{{EMP.deptno.dloc}}</td>
+            <td>{{EMP.mgr.ename}}</td>
             <td>{{EMP.deptno}}</td>
+            <td>{{EMP.deptno.dname}}</td>
+            <td>{{EMP.deptno.dloc}}</td>
+
+
           </tr>
           {% endfor %}
         </tbody>

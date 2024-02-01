@@ -14,26 +14,16 @@
           <tr>
             <th scope="col">Empno</th>
             <th scope="col">EmpName</th>
-            <th scope="col">Job</th>
             <th scope="col">Mgr</th>
-            <th scope="col">Hiredate</th>
-            <th scope="col">Sal</th>
-            <th scope="col">Comm</th>
-            <th scope="col">Deptno</th>
 
           </tr>
         </thead>
         <tbody>
-            {% for EMP in EMPO%}
+            {% for SJ in UO%}
           <tr>
-            <td>{{EMP.empno}}</td>
-            <td>{{EMP.ename}}</td>
-            <td>{{EMP.job}}</td>
-            <td>{{EMP.mgr}}</td>
-            <td>{{EMP.hiredate}}</td>
-            <td>{{EMP.sal}}</td>
-            <td>{{EMP.comm}}</td>
-            <td>{{EMP.deptno}}</td>
+            <td>{{SJ.empno}}</td>
+            <td>{{SJ.ename}}</td>
+            <td>{{SJ.mgr.mgr}}</td>
           </tr>
           {% endfor %}
         </tbody>

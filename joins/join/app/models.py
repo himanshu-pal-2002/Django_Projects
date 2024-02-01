@@ -8,7 +8,7 @@ class Dept(models.Model):
     dname=models.CharField(max_length=100)
     dloc=models.CharField(max_length=100)
 
-    def _str_(self):
+    def __str__(self):
         return self.dname
 
 # Models for Employee Table:
@@ -22,7 +22,7 @@ class Emp(models.Model):
     comm=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True)
     deptno=models.ForeignKey(Dept,on_delete=models.CASCADE)
     
-    def _str_(self):
+    def __str__(self):
         return self.ename
 
 # Models for Salary Grade:
