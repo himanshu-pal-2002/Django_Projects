@@ -23,6 +23,8 @@ def selfjoin(request):
     UO=Emp.objects.select_related('mgr').all()
     UO=Emp.objects.select_related('mgr').filter(ename='ALLEN')
     UO=Emp.objects.select_related('mgr').filter(ename='JONES')
+    UO=Emp.objects.select_related('mgr').filter(sal__gt=2500)
+
 
 
 
