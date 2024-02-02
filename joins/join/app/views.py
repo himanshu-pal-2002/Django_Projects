@@ -22,6 +22,8 @@ def equijoin(request):
 def selfjoin(request):
     UO=Emp.objects.select_related('mgr').all()
     UO=Emp.objects.select_related('mgr').filter(ename='ALLEN')
+    UO=Emp.objects.select_related('mgr').filter(ename='JONES')
+
 
 
     d={'UO':UO}
