@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import View,TemplateView
 from .forms import *
 
 # By using function based view:
@@ -28,9 +28,21 @@ class home(View):
         return HttpResponse('!! Happy Birthday !!')
     
 # By using class Based View rendering HTML page:
-class homehtml(View):
+class classhtml(View):
     def get(self,request):
         SO = StudentForm()
         d={'SO':SO}
-        return render(request,'home1.html',d)
+        return render(request,'class.html',d)
+    
+
+    def post(self,request):
+        ESO = StudentForm(request.POST)
+        if ESO.is_valid():
+            ESO.save()
+        return HttpResponse('Student is created')
+    
+# By using TemplateView:
+class Template(TemplateView):
+    template_name = 'template.html'
+
 

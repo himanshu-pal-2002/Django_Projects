@@ -10,8 +10,9 @@
         <h1>!! Student Form !!</h1>
         <form method="POST">
             {% csrf_token %}
-            {{SO.as_p}}
             
+            {{SO.as_p}}
+
            <input type="submit" value="Submit">
 
         </form>
