@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Create Model for School:
 class School(models.Model):
 
     sname  = models.CharField(max_length=100)
@@ -9,6 +9,8 @@ class School(models.Model):
 
     def __str__(self):
         return self.sname
+
+# Create model for Students.
     
 class Student(models.Model):
 
