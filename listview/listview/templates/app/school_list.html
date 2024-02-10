@@ -8,6 +8,12 @@
 <body>
     <center>
         <h1> !! List view !! </h1>
+        {% for school in schools %}
+        
+        <a href="{{school.pk}}">
+            <h2>{{school.sname}}</h2>
+        </a>
+        {% endfor %}
     </center>
 </body>
 </html>
