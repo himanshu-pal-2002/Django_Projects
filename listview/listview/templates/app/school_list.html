@@ -1,19 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <center>
-        <h1> !! List view !! </h1>
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+    <title>School List</title>
+{% endblock %}
+
+{% block body_block %}
+
+<div class="card text-center">
+    <div class="card-header">
+      <h1>SCHOOL LIST VIEW</h1>
+    </div>
+    <div class="card-body">
+
         {% for school in schools %}
         
         <a href="{{school.pk}}">
             <h2>{{school.sname}}</h2>
         </a>
         {% endfor %}
-    </center>
-</body>
-</html>
+   
+    </div>
+    <div class="card-footer text-body-secondary">
+      Created and Managed By @ HIMANSHU PAL @
+    </div>
+  </div>
+{% endblock %}

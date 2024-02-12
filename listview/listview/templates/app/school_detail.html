@@ -1,12 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Details</title>
-</head>
-<body>
-    <h1>School Details</h1>
-    
-</body>
-</html>
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+    <title>School Detail</title>
+{% endblock %}
+
+
+{% block body_block %}
+
+
+<div class="card text-center">
+    <div class="card-header">
+      <h1>Detailed Information of {{sclobject.sname}}</h1>
+    </div>
+    <div class="card-body">
+        <h2>Name of the school is {{sclobject.sname}}</h2>
+        
+        <h2>Principal of the school is {{sclobject.sprincipal}}</h2>
+
+        <h2>location of the school is {{sclobject.slocation}}</h2><br>
+
+      <a href="{% url 'list' %}" class="btn btn-primary">School List</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+        Created and Managed By @ HIMANSHU PAL @
+    </div>
+  </div><br>
+
+
+<h1>STUDENT DETAILS ARE</h1><br>
+
+<table class="table">
+    <thead>
+      <tr  class="table-secondary">
+        <th scope="col">STUDENT NAME</th>
+        <th scope="col">STUDENT AGE</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for st in sclobject.students.all %}
+            <tr class="table-warning">
+                <td>{{st.sname}}</td>
+                <td>{{st.sage}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

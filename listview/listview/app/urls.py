@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import path,re_path
 from .views import *
 
 urlpatterns = [
     path('',list.as_view(),name='list'),
-    path('(?P<pk>\d+)/',SchoolDetail.as_view(),name='detail'),
+    re_path('(?P<pk>\d+)/',SchoolDetail.as_view(),name='detail'),
 ]
