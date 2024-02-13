@@ -21,9 +21,6 @@
 
       <a href="{% url 'list' %}" class="btn btn-primary">School List</a>
     </div>
-    <div class="card-footer text-body-secondary">
-        Created and Managed By @ HIMANSHU PAL @
-    </div>
   </div><br>
 
 
@@ -45,6 +42,9 @@
         {% endfor %}
     </tbody>
   </table>
-  <a href="{% url 'SchoolUpdate' pk=sclobject.pk %}">School Update</a>
+  <a href="{% url 'SchoolUpdate' pk=sclobject.pk %}" class="btn btn-primary">School Update</a>
+
+  <a href="{% url 'SchoolDelete' pk=sclobject.pk %}" class="btn btn-secondary">School Delete</a>
+
 
 {% endblock %}
