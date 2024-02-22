@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle List</title>
-</head>
-<body>
+{% extends 'vehicle/base.html' %}
+
+{% block title %} Vehicle List {% endblock %}
+
+
+{% block content %}
     <center>
         <h2>Vehicle List</h2>
-<ul>
-  {% for vehicle in vehicles %}
-    <li>{{ vehicle.vehicle_number }} - {{ vehicle.driver_name }}</li>
-  {% endfor %}
-</ul>
-
     </center>
-</body>
-</html>
+
+        <table class="table table-striped">
+
+          <thead>
+            <tr>
+              <th scope="col">Vehicle Number</th>
+              <th scope="col">Vehicle Driver Name</th>
+
+            </tr>
+          </thead>
+          <tbody>
+              {% for vehicle in vehicles %}
+              <tr>
+              <td>{{ vehicle.vehicle_number }}</td>
+              <td>{{ vehicle.driver_name }}</td>
+            </tr>
+              {% endfor %}
+
+          </tbody>
+        </table>
+{% endblock %}

@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Vehicle, PurchaseOrder
 from .forms import VehicleForm  # You will create this form in the next step
 
+
+def index(request):
+    return render(request,'vehicle/base.html')
+
 def vehicle_list(request):
     vehicles = Vehicle.objects.all()
     return render(request, 'vehicle/vehicle.html', {'vehicles': vehicles})
