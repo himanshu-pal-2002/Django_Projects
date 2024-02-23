@@ -30,9 +30,12 @@ class DeliveryChallan(models.Model):
         return self.dc_number
 
 class Vehicle(models.Model):
+
+
     vehicle_number = models.CharField(max_length=100)
-    driver_name = models.CharField(max_length=100)
-    delivery_challan = models.OneToOneField(DeliveryChallan, on_delete=models.CASCADE)
+    vehicle_type = models.CharField(max_length=50)
+    purchase_order_number = models.CharField(max_length=50)
+    delivery_challan_number = models.CharField(max_length=50)
 
     def __str__(self):
         return self.vehicle_number
