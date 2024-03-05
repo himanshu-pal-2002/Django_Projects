@@ -20,5 +20,5 @@ from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',ProductCred.as_view(),name = 'ProductCred'),
+    path('ProductCred/<id>/',ProductCred.as_view(),name ='ProductCred'),
 ]
