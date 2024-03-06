@@ -11,6 +11,14 @@ class ProductCred(APIView):
         SDO = ProductModelSerializers(PDO, many=True)
         return Response(SDO.data)
 
-    def post(self,request):
-        
+    
+    def post(self,request,id):
+        JDO=request.data
+        PDO=ProductModelSerializers(data=JDO)
+        if PDO.is_valid():
+            PDO.save()
+            return Response({'insert':'Data is inserted Successfully'})
+        else:
+            return Response({'Error':'Data is not Inserted'})
+
     
