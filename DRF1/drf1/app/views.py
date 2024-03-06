@@ -10,4 +10,7 @@ class ProductCred(APIView):
         PDO = Product.objects.all()
         SDO = ProductModelSerializers(PDO, many=True)
         return Response(SDO.data)
+
+    def post(self,request):
+        
     
