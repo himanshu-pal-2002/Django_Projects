@@ -11,37 +11,37 @@ class ProductCred(APIView):
         SDO = ProductModelSerializers(PDO, many=True)
         return Response(SDO.data)
 
-    
+    # For inserting the Data:
     def post(self,request,id):
-        JDO=request.data
-        PDO=ProductModelSerializers(data=JDO)
-        if PDO.is_valid():
-            PDO.save()
+        PDO = request.data
+        SDO = ProductModelSerializers(data=PDO)
+        if SDO.is_valid():
+            SDO.save()
             return Response({'insert':'Data is inserted Successfully'})
         else:
             return Response({'Error':'Data is not Inserted'})
 
     
-    def put(self,request,id):
-        PO=Product.objects.get(id=id)
-        UPDO=ProductModelSerializers(PO,data=request.data)
-        if UPDO.is_valid():
-            UPDO.save()
-            return Response({'update':'Data is Updated'})
-        else:
-            return Response({'error':'Update not done'})
+    # def put(self,request,id):
+    #     PO=Product.objects.get(id=id)
+    #     UPDO=ProductModelSerializers(PO,data=request.data)
+    #     if UPDO.is_valid():
+    #         UPDO.save()
+    #         return Response({'update':'Data is Updated'})
+    #     else:
+    #         return Response({'error':'Update not done'})
     
-    def patch(self,request,id):
-        PO=Product.objects.get(id=id)
-        UPDO=ProductModelSerializers(PO,data=request.data,partial=True)
-        if UPDO.is_valid():
-            UPDO.save()
-            return Response({'update':'Data is Updated'})
-        else:
-            return Response({'error':'Update not done'})
+    # def patch(self,request,id):
+    #     PO=Product.objects.get(id=id)
+    #     UPDO=ProductModelSerializers(PO,data=request.data,partial=True)
+    #     if UPDO.is_valid():
+    #         UPDO.save()
+    #         return Response({'update':'Data is Updated'})
+    #     else:
+    #         return Response({'error':'Update not done'})
 
-    def delete(self,request,id):
-        Product.objects.get(id=id).delete()
-        return Response({'deletion':'Data is Deleted'})
+    # def delete(self,request,id):
+    #     Product.objects.get(id=id).delete()
+    #     return Response({'deletion':'Data is Deleted'})
 
     
