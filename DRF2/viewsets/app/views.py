@@ -9,6 +9,11 @@ class ProductCrud(ViewSet):
         LPO = Product.objects.all()
         JPO = ProductModelSerializers(LPO,many=True)
         return Response(JPO.data)
+    
+    def retrive(self,request,pk):
+        PO = Product.objects.get(pk=pk)
+        PMO = ProductModelSerializers(PO)
+        return Response(PMO.data)
 
 
 
