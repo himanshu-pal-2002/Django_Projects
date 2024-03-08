@@ -10,6 +10,8 @@ class Product_Category(models.Model):
     def __str__(self):
         return self.Product_category_name
 
+# Create Models for Product Category:
+
 class Product(models.Model):
 
     Product_Category = models.ForeignKey(Product_Category,on_delete = models.CASCADE)
