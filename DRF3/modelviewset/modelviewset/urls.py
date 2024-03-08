@@ -19,6 +19,7 @@ from django.urls import path,include
 from app.views import *
 from rest_framework.routers import DefaultRouter
 
+# By using Router For Handling Views:
 DRO = DefaultRouter()
 DRO.register('ProductCrud',ProductCrud,basename='ProductCrud')
 
