@@ -22,14 +22,6 @@ class ProductCred(APIView):
             return Response({'Error':'Data is not Inserted'})
 
     
-    # def put(self,request,id):
-    #     PO=Product.objects.get(id=id)
-    #     UPDO=ProductModelSerializers(PO,data=request.data)
-    #     if UPDO.is_valid():
-    #         UPDO.save()
-    #         return Response({'update':'Data is Updated'})
-    #     else:
-    #         return Response({'error':'Update not done'})
     
 
 
