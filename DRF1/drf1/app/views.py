@@ -40,8 +40,5 @@ class ProductCred(APIView):
     #     else:
     #         return Response({'error':'Update not done'})
 
-    # def delete(self,request,id):
-    #     Product.objects.get(id=id).delete()
-    #     return Response({'deletion':'Data is Deleted'})
 
     
