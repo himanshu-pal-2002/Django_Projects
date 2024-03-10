@@ -31,18 +31,20 @@ class ProductCred(APIView):
         else:
             return Response({'error':'Update not done'})
     
-    # def patch(self,request,id):
-    #     PO=Product.objects.get(id=id)
-    #     UPDO=ProductModelSerializers(PO,data=request.data,partial=True)
-    #     if UPDO.is_valid():
-    #         UPDO.save()
-    #         return Response({'update':'Data is Updated'})
-    #     else:
-    #         return Response({'error':'Update not done'})
+    # For updating the Partial Data or full data:
+    def patch(self,request,id):
+        PO=Product.objects.get(id=id)
+        UPDO=ProductModelSerializers(PO,data=request.data,partial=True)
+        if UPDO.is_valid():
+            UPDO.save()
+            return Response({'update':'Data is Updated'})
+        else:
+            return Response({'error':'Update not done'})
 
-    # def delete(self,request,id):
-    #     Product.objects.get(id=id).delete()
-    #     return Response({'deletion':'Data is Deleted'})
+    # For Deleting Data:
+    def delete(self,request,id):
+        Product.objects.get(id=id).delete()
+        return Response({'deletion':'Data is Deleted'})
 
     
     
